@@ -1,0 +1,21 @@
+.rpi-mode-adjust-wrap {
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+    background-color: $mode-outer-bg-light;
+    border: 1px solid $mode-outer-br-light;
+    border-radius: 50px;
+    .rpi-mode-adjust-inner {
+        width: 73%;
+        height: 73%;
+        background-color: $mode-inner-bg-light;
+        border-radius: 50px;
+
+        margin: 5px;
+        .icon-night {
+            color: $mode-icon-night-light;
+            font-size: 1.3rem;
+        }
+    }
+}

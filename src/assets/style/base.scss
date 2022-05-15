@@ -1,0 +1,98 @@
+html {
+    width: 100%;
+    height: 100%;
+  }
+  
+body {
+    font-family: $plusJakartaFont !important;
+    background-color: $bg-light !important;
+    color: $text-light !important;
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+h1,h2,h3,h4,h5 {
+  color: $text-light;
+}
+
+p {
+  font-size: 0.85rem;
+  color: $text-light;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.status-light {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+}
+
+.online-light {
+  background-color: $status-online-light;
+}
+.offline-light {
+  background-color: $status-offline-light;
+}
+.warn-light {
+  background-color: $status-warn-light;
+}
+.bolded {
+  font-weight: 600;
+}
+.rpi-panels-wrap {
+
+  .rpi-panel-wrap {
+    width: 100%;
+    height: 140px;
+  
+    .rpi-panel-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      border: 1px solid $panel-br-light;
+      border-radius: 14px;
+  
+      .rpi-panel-holder {
+        width: 69px;
+        height: 14px;
+        position: absolute;
+        left: 18px;
+        top: -10px;
+        background-color: $bg-light;
+        .rpi-panel-info {
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 0.75rem;
+          color: $info-text-light;
+          text-align: center;
+        }
+      }
+  
+      .rpi-panel-icon-wrap {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: $panel-icon-bg-light;
+        border: 1px solid $panel-br-light;
+        border-radius: 50px;
+  
+        .rpi-panel-icon-inner {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  
+          .icon-light {
+            color: $panel-icon-color-light;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

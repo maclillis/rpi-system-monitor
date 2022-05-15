@@ -1,5 +1,12 @@
-.navigation {
-    nav {
+.rpi-navigation-wrap {
+  width: 100%;
+  .rpi-mode-adjuster-outer {
+    width: 30%;
+  }
+  .rpi-hamburger-wrap {
+    font-size: 2rem;
+  }
+    /*nav {
         padding: 30px;
       
         a {
@@ -10,5 +17,5 @@
             color: #42b983;
           }
         }
-      }
+      }*/
 }

@@ -38,7 +38,6 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(LayoutPlugin);
 Vue.use(VGauge);
-
 Vue.config.productionTip = false;
 
 new Vue({

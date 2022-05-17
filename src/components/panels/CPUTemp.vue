@@ -54,17 +54,14 @@ export default {
         generateGradient: true,
         highDpiSupport: true,
         staticZones: [
-          { strokeStyle: "#31d016", min: 30, max: 39 }, // Green
-          { strokeStyle: "#FCE300", min: 40, max: 50 }, // Yellow
-          { strokeStyle: "#FB840E", min: 51, max: 70 }, // Orange
-          { strokeStyle: "#f83434", min: 71, max: 80 }, // Red
-          { strokeStyle: "#b50000", min: 81, max: 90 }, // Deep Red
+          { strokeStyle: "#31d016", min: 30, max: 40 }, // Green
+          { strokeStyle: "#FCE300", min: 40.5, max: 50 }, // Yellow
+          { strokeStyle: "#FB840E", min: 50.5, max: 70 }, // Orange
+          { strokeStyle: "#f83434", min: 70.5, max: 80 }, // Red
+          { strokeStyle: "#b50000", min: 80.5, max: 90 }, // Deep Red
         ],
       },
     };
-  },
-  mounted() {
-    console.log(this.setOpts);
   },
 };
 </script>

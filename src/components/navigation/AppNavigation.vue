@@ -6,7 +6,7 @@
       <ModeAdjuster />
     </div>
     <div class="rpi-hamburger-wrap align-self-center">
-      <font-awesome-icon icon="fa-solid fa-bars" />
+      <font-awesome-icon icon="fa-solid fa-bars" @click="showMenu()" />
     </div>
   </div>
 </template>
@@ -18,6 +18,24 @@ export default {
   name: "AppNavigation",
   components: {
     ModeAdjuster,
+  },
+  data: function () {
+    return {
+      showMobileMenu: false,
+    };
+  },
+  methods: {
+    showMenu() {
+      let menu = document.getElementById("menu");
+
+      this.showMobileMenu = !this.showMobileMenu;
+
+      if (this.showMobileMenu) {
+        menu.classList.add("menu-out");
+      } else {
+        menu.classList.remove("menu-in");
+      }
+    },
   },
 };
 </script>

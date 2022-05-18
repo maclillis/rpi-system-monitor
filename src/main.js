@@ -15,6 +15,7 @@ import {
   faMemory,
   faPlugCircleBolt,
   faWaveSquare,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* Add the icons globally */
@@ -25,7 +26,8 @@ library.add(
   faTemperatureHalf,
   faMemory,
   faPlugCircleBolt,
-  faWaveSquare
+  faWaveSquare,
+  faXmark
 );
 
 /* add font awesome icon component */

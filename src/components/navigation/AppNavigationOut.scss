@@ -1,0 +1,119 @@
+
+.rpi-menu-out {
+  height: 100vh;
+  position: absolute;
+  z-index: 20;
+  display: flex;
+
+  .rpi-menu-out-inner {
+    width: 227px;
+    height: 100%;
+    background-color: $menu-bg-light;
+    position: absolute;
+    right: -625px;
+    padding: 18px 15px 15px;
+    box-shadow: -4px 0px 3px rgba(0, 0, 0, 0.1);
+    
+    .head-menu-row {
+      width: 100%;
+      padding-bottom: 13px;
+      border-bottom: 1px solid $menu-divider-light;
+
+      .head-menu-col {
+        display: flex;
+        .menu-title {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin: 0;
+          align-self: center;
+        }
+        .fa-xmark {
+          font-size: 1.6rem;
+          line-height: 0;
+          align-self: flex-end;
+          justify-content: flex-end;
+          display: flex;
+        }
+
+        &:last-child {
+          justify-content: flex-end;
+          display: flex;
+        }
+      }
+    }
+
+    .desc-menu-row {
+      width: 100%;
+      padding: 13px 0;
+      .desc-menu-col {
+        .server-info {
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 0.65rem;
+          color: $menu-info-text-light;
+          margin: 0;
+        }
+        &:last-child {
+          justify-content: flex-end;
+          display: flex;
+        }
+      }
+    }
+
+    .server-menu-row {
+      width: 100%;
+      padding: 0 0 15px;
+      .server-menu-col {
+       .server-name {
+         font-size: 1.15rem;
+         margin: 0;
+         align-self: center;
+       }
+       .server-title {
+         margin: 0;
+         font-size: 0.7rem;
+         line-height: 1;
+         color: $menu-info-text-light;
+       }
+       .status-light {
+         width: 14px;
+         height: 14px;
+         border-radius:50px;
+         align-self: flex-start;
+         margin-top: 7px;
+       }
+
+       &:last-child {
+        justify-content: flex-end;
+        display: flex;
+      }
+      }
+    }
+  }
+}
+
+.menu-out {
+  -webkit-animation: slideIn 0.5s forwards;
+  animation: slideIn 0.5s forwards;
+}
+
+.menu-in {
+  -webkit-animation: slideOut 1s forwards;
+  animation: slideOut 1s forwards;
+}
+
+@-webkit-keyframes slideIn {
+  100% { right: -390px; }
+}
+
+@keyframes slideIn {
+  100% { right: -390px; }
+}
+
+@-webkit-keyframes slideOut {
+  100% { right: -625px; }
+}
+
+@keyframes slideOut {
+  100% { right: -625px; }
+}

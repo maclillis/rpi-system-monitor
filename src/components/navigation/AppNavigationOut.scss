@@ -2,15 +2,15 @@
 .rpi-menu-out {
   height: 100vh;
   position: absolute;
+  top: 0;
+  right: -236px;
   z-index: 20;
   display: flex;
 
   .rpi-menu-out-inner {
     width: 227px;
     height: 100%;
-    background-color: $menu-bg-light;
-    position: absolute;
-    right: -625px;
+    background-color: var(--main-bg-color);
     padding: 18px 15px 15px;
     box-shadow: -4px 0px 3px rgba(0, 0, 0, 0.1);
     
@@ -103,17 +103,17 @@
 }
 
 @-webkit-keyframes slideIn {
-  100% { right: -390px; }
+  100% { right: 0; }
 }
 
 @keyframes slideIn {
-  100% { right: -390px; }
+  100% { right: 0; }
 }
 
 @-webkit-keyframes slideOut {
-  100% { right: -625px; }
+  100% { right: -236px; }
 }
 
 @keyframes slideOut {
-  100% { right: -625px; }
+  100% { right: -236px; }
 }

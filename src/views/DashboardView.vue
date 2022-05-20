@@ -35,6 +35,8 @@ import ClockFrequency from "../components/panels/ClockFrequency.vue";
 import UpTime from "../components/panels/UpTime.vue";
 import ThrottWarnings from "../components/panels/ThrottWarnings.vue";
 
+import "@/views/DashboardView.scss";
+
 export default {
   name: "DashboardView",
   components: {

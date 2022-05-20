@@ -1,6 +1,6 @@
 <template>
-  <div class="rpi-menu-out">
-    <div class="rpi-menu-out-inner" id="menu">
+  <div class="rpi-menu-out" id="menu">
+    <div class="rpi-menu-out-inner">
       <div class="row head-menu-row d-flex m-0">
         <div class="col head-menu-col d-flex">
           <p class="menu-title align-self-end lh-0">RPI's</p>

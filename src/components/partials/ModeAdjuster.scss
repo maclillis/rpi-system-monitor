@@ -1,21 +1,58 @@
 .rpi-mode-adjust-wrap {
-    width: 40px;
-    height: 40px;
-    position: relative;
-
-    background-color: $mode-outer-bg-light;
-    border: 1px solid $mode-outer-br-light;
-    border-radius: 50px;
     .rpi-mode-adjust-inner {
-        width: 73%;
-        height: 73%;
-        background-color: $mode-inner-bg-light;
-        border-radius: 50px;
+        .switch-checkbox {
+            display: none;
+          }
 
-        margin: 5px;
-        .icon-night {
-            color: $mode-icon-night-light;
-            font-size: 1.3rem;
+        .switch-label {
+            /* for width, use the standard element-size */
+            width: 58px; 
+            
+            /* for other dimensions, calculate values based on it */
+            border-radius: var(--element-size);
+            //border: calc(var(--element-size) * 0.025) solid var(--accent-color);
+            padding: calc(var(--element-size) * 0.05);
+            font-size: calc(var(--element-size) * 0.3);
+            height: calc(var(--element-size) * 0.35);
+            
+            align-items: center;
+            background: var(--text-primary-color);
+            cursor: pointer;
+            display: flex;
+            position: relative;
+            transition: background 0.5s ease;
+            justify-content: space-between;
+            z-index: 1;
+
+            .icon-dark {
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                color: $mode-icon-night-light;
+            }
+            .icon-light {
+                font-size: 1rem;
+                padding-left: 5px;
+                display: flex;
+                align-items: center;
+                color: $mode-icon-day-dark;
+            }
+        }
+
+        .switch-toggle {
+            position: absolute;
+            background-color: var(--background-color-primary);
+            border-radius: 50%;
+            top: calc(var(--element-size) * 0.03);
+            left: calc(var(--element-size) * 0.03);
+            height: calc(var(--element-size) * 0.30);
+            width: calc(var(--element-size) * 0.30);
+            transform: translateX(0);
+            transition: transform 0.4s ease, background-color 0.6s ease;
+        }
+
+        .switch-toggle-checked {
+            transform: translateX(calc(var(--element-size) * 0.36)) !important;
         }
     }
 }

@@ -1,6 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import axios from "axios";
+import VueAxios from "vue-axios";
 import { BootstrapVue, IconsPlugin, LayoutPlugin } from "bootstrap-vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -38,6 +40,7 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
+Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(LayoutPlugin);

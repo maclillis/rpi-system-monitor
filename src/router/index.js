@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import DashboardView from "../views/DashboardView.vue";
+import GlastonburyView from "../views/GlastonburyView.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "dashboard-view",
-    component: DashboardView,
+    name: "glastonbury-view",
+    component: GlastonburyView,
   },
   /*
   {

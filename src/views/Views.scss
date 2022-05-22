@@ -1,0 +1,245 @@
+.rpi-dashboard-wrap {
+    .rpi-main-info-wrap {
+
+        .rpi-title-wrap {
+    
+            .rpi-name {
+                font-size: 2.25rem;
+                font-weight: 700;
+                margin: 0;
+            }
+            .rpi-status {
+                font-size: 1rem;
+            }
+        }
+        .rpi-model {
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+    
+        .rpi-misc-info-wrap {
+            .rpi-misc-info {
+                margin:0 !important;
+                padding:0 !important;
+            }
+        }
+    }
+
+    .rpi-panels-wrap {
+        .rpi-cpu-temp-wrap {
+            .rpi-cpu-temp-inner {
+                .rpi-current-temp-gauge-wrap {
+                    width: 100%;
+                    height: 140px;
+                    display: flex;
+        
+                    .gauge-title {
+                        display: flex;
+                        justify-content: center;
+                        .rpi-temp-gauge {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            line-height: 1;
+                        }
+                    }
+                }
+                .rpi-current-temp {
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    .c-temp-text {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .rpi-memory-usage-wrap {
+            .rpi-memory-usage-inner {
+                .rpi-panel-holder {
+                    width: 65px !important;
+                }
+        
+                .rpi-memory-chart-wrap {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    position: relative;
+        
+                    .rpi-memory-current-used {
+                        position: absolute;
+                        top: 58px;
+                        left: 73px;
+                        font-weight: 700;
+                        font-size: 0.9rem;
+                        text-align: center;
+                        padding: 0;
+                        margin: 0;
+                        line-height: 0.75;
+        
+                        .smaller {
+                            font-weight: 500;
+                            font-size: 0.5rem;
+                            margin: 0;
+                        }
+                    }
+        
+                    .rpi-memory-chart-core {
+                        width: 100%;
+                        align-self: flex-end;
+                    }
+                }
+            }
+        }
+
+        .rpi-uptime-wrap {
+            .rpi-uptime-inner {
+                .rpi-panel-holder {
+                    width: 55px !important;
+                }
+                .rpi-current-uptime-holder {
+                    width: 100%;
+                    height: 100%;
+                    .c-uptime-text {
+                        font-weight: 600;
+                        font-size: 1.95rem;
+                        line-height: 1.3;
+        
+                        .thinner {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+
+        .rpi-freq-wrap {
+            .rpi-freq-inner {
+                .rpi-panel-holder {
+                    width: 85px !important;
+                }
+        
+                .rpi-freq-info-wrap {
+                    width: 100%;
+                    height: 100%;
+                    .rpi-freq-info-detail {
+                        font-weight: 600;
+                        font-size: 0.65rem;
+                        color: $panel-super-detail-light;
+                    }
+                    .rpi-freq-info-current {
+                        font-weight: 600;
+                        font-size: 2.2rem;
+                        line-height: 1.1;
+                        .small-caps {
+                            font-size: 0.90rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .rpi-warnings-wrap {
+            .rpi-warnings-inner {
+                .rpi-panel-holder {
+                    width: 78px !important;
+                }
+        
+                .rpi-warn-badges-wrap {
+                    width: 100%;
+                    .warn-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        width: auto;
+                        height: 25px;
+                        padding: 3px 8px;
+                        border-radius: 3px;
+                        margin: 2px;
+        
+                        .badge-text {
+                            font-size: 0.60rem;
+                            text-transform: uppercase;
+                            font-weight: 800;
+                            margin: 0;
+                            padding: 0;
+                            line-height: 0;
+                        }
+                    }
+                    .filled {
+                        background-color: $warn-filled-bg-off-light;
+        
+                        .badge-text {
+                            color: $warn-filled-text-off-light;
+                        }
+                    }
+                    .hollow {
+                        border: 2px solid $warn-hollow-br-off-light;
+        
+                        .badge-text {
+                            color: $warn-hollow-text-off-light;
+                        }
+                    }
+                    .throttling-on {
+                        background-color: $warn-thr-bg-light;
+        
+                        .badge-text {
+                            color: $warn-thr-text-light;
+                        }
+                    }
+                    .throttling-occ-on {
+                        border: 2px solid $warn-throccu-br-light;
+        
+                        .badge-text {
+                            color: $warn-throccu-text-light;
+                        }
+                    }
+                    .undervolt-on {
+                        background-color: $warn-uvolt-bg-light;
+        
+                        .badge-text {
+                            color: $warn-uvolt-text-light;
+                        }
+                    }
+                    .undervolt-occ-on {
+                        border: 2px solid $warn-uvoltoccu-br-light;
+        
+                        .badge-text {
+                            color: $warn-uvoltoccu-text-light;
+                        }
+                    }
+                    .frequency-on {
+                        background-color: $warn-armfreq-bg-light;
+        
+                        .badge-text {
+                            color: $warn-armfreq-text-light;
+                        }
+                    }
+                    .frequency-occ-on {
+                        border: 2px solid $warn-armfreqoccu-br-light;
+        
+                        .badge-text {
+                            color: $warn-armfreqoccu-text-light;
+                        }
+                    }
+                    .soft-temp-on {
+                        background-color: $warn-sftemp-bg-light;
+        
+                        .badge-text {
+                            color: $warn-sftemp-text-light;
+                        }
+                    }
+                    .soft-temp-occ-on {
+                        border: 2px solid $warn-sftempoccu-br-light;
+        
+                        .badge-text {
+                            color: $warn-sftempoccu-text-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

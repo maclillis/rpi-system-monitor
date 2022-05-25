@@ -115,7 +115,7 @@
               </div>
 
               <div
-                class="rpi-current-uptime-holder d-flex justify-content-center px-3 mx-2"
+                class="rpi-current-uptime-holder d-flex justify-content-start ps-4"
               >
                 <p class="c-uptime-text align-self-center m-0">
                   {{ uptimeVal }}
@@ -173,28 +173,52 @@
                 <p class="rpi-panel-info">warnings</p>
               </div>
               <div class="rpi-warn-badges-wrap px-4 py-3">
-                <div class="warn-badge filled throttling-on">
+                <div
+                  class="warn-badge filled"
+                  :class="{ ' throttling-on': throttling }"
+                >
                   <p class="badge-text">throttling</p>
                 </div>
-                <div class="warn-badge hollow throttling-occ-on">
+                <div
+                  class="warn-badge hollow"
+                  :class="{ ' throttling-occ-on': throttlingOcc }"
+                >
                   <p class="badge-text">throttling occured</p>
                 </div>
-                <div class="warn-badge filled undervolt-on">
+                <div
+                  class="warn-badge filled"
+                  :class="{ ' undervolt-on': underVolt }"
+                >
                   <p class="badge-text">undervoltage deteced</p>
                 </div>
-                <div class="warn-badge hollow undervolt-occ-on">
+                <div
+                  class="warn-badge hollow"
+                  :class="{ ' undervolt-occ-on': underVoltOcc }"
+                >
                   <p class="badge-text">undervoltage occured</p>
                 </div>
-                <div class="warn-badge filled frequency-on">
+                <div
+                  class="warn-badge filled"
+                  :class="{ ' frequency-on': armFr }"
+                >
                   <p class="badge-text">arm frequency capped</p>
                 </div>
-                <div class="warn-badge hollow frequency-occ-on">
+                <div
+                  class="warn-badge hollow"
+                  :class="{ ' frequency-occ-on': armFrOcc }"
+                >
                   <p class="badge-text">arm frequency occured</p>
                 </div>
-                <div class="warn-badge filled soft-temp-on">
+                <div
+                  class="warn-badge filled"
+                  :class="{ ' soft-temp-on': softTemp }"
+                >
                   <p class="badge-text">soft temp. limit active</p>
                 </div>
-                <div class="warn-badge hollow soft-temp-occ-on">
+                <div
+                  class="warn-badge hollow"
+                  :class="{ ' soft-temp-occ-on': softTempOcc }"
+                >
                   <p class="badge-text">soft temp. limit occured</p>
                 </div>
               </div>
@@ -270,6 +294,14 @@ export default {
       coreVal: "",
       releaseVal: null,
       versionVal: null,
+      armFr: null,
+      armFrOcc: null,
+      softTemp: null,
+      softTempOcc: null,
+      throttling: null,
+      throttlingOcc: null,
+      underVolt: null,
+      underVoltOcc: null,
       minValue: 30,
       maxValue: 90,
       opts: null,
@@ -337,6 +369,16 @@ export default {
 
           this.armVal = this.device.frequency.arm.quantity;
           this.coreVal = this.device.frequency.core.quantity;
+
+          this.armFr = this.device.throttle.armFrequencyCapped;
+          this.armFrOcc = this.device.throttle.armFrequencyCappingHasOccurred;
+          this.softTemp = this.device.throttle.softTemperatureLimitActive;
+          this.softTempOcc =
+            this.device.throttle.softTemperatureLimitHasOccurred;
+          this.throttling = this.device.throttle.throttling;
+          this.throttlingOcc = this.device.throttle.throttlingHasOccurred;
+          this.underVolt = this.device.throttle.underVoltageDetected;
+          this.underVoltOcc = this.device.throttle.underVoltageHasOccurred;
         })
         .catch((error) => {
           console.log(error);

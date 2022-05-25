@@ -169,17 +169,17 @@
                         }
                     }
                     .filled {
-                        background-color: $warn-filled-bg-off-light;
+                        background-color: var(--warn-bg-color);
         
                         .badge-text {
-                            color: $warn-filled-text-off-light;
+                            color: var(--warn-filled-text-color);
                         }
                     }
                     .hollow {
-                        border: 2px solid $warn-hollow-br-off-light;
+                        border: 2px solid var(--warn-br-color);
         
                         .badge-text {
-                            color: $warn-hollow-text-off-light;
+                            color: var(--warn-text-color);
                         }
                     }
                     .throttling-on {

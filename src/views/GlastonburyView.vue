@@ -1,15 +1,27 @@
 <template>
   <div class="rpi-dashboard-wrap d-flex flex-column px-3">
-    <div class="rpi-main-info-wrap">
+    <div class="rpi-main-info-wrap" v-if="apiStatus == 200">
       <div class="rpi-title-wrap d-inline-flex align-items-end">
         <h1 class="rpi-name me-3 lh-0">
           {{
             this.deviceName.charAt(0).toUpperCase() + this.deviceName.slice(1)
           }}
         </h1>
-        <span class="rpi-status d-inline-flex align-items-center lh-0 mb-1">
+        <span
+          v-if="apiStatus == 200"
+          class="rpi-status d-inline-flex align-items-center lh-0 mb-1"
+        >
           <span class="status-light online-light me-1 align-self-center"></span>
           Online
+        </span>
+        <span
+          v-if="apiStatus != 200"
+          class="rpi-status d-inline-flex align-items-center lh-0 mb-1"
+        >
+          <span
+            class="status-light offline-light me-1 align-self-center"
+          ></span>
+          Offline
         </span>
       </div>
       <h2 class="rpi-model">Raspberry PI 4 Model B</h2>
@@ -26,7 +38,7 @@
         </p>
       </div>
     </div>
-    <div class="rpi-panels-wrap pt-2 px-2">
+    <div class="rpi-panels-wrap pt-2 px-2" v-if="apiStatus == 200">
       <div class="row">
         <div class="col px-0 pe-2">
           <div class="rpi-cpu-temp-wrap rpi-panel-wrap">
@@ -283,6 +295,7 @@ export default {
   },
   data() {
     return {
+      apiStatus: null,
       cpuTemp: 40,
       info: null,
       loading: true,
@@ -357,6 +370,9 @@ export default {
         .get(process.env.VUE_APP_GLASTONBURY_BASE_URL + "/system/")
         .then((response) => {
           this.device = response.data;
+
+          //Fetch status of HTTP-request
+          this.apiStatus = response.status;
 
           this.deviceName = this.device.platform.networkName;
           this.osName = this.device.platform.operatingSystem.name;

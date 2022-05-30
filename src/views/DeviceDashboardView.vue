@@ -281,7 +281,7 @@
           </span>
         </div>
         <h5 class="rpi-fail-text lh-0 d-flex mt-3">
-          Connection to device timed out.
+          The device seems to be turned off or offline.
         </h5>
       </div>
     </div>
@@ -505,12 +505,16 @@ export default {
       this.chooseRoute();
       this.fetchDeviceData();
       this.hideMenu();
+      this.loading = true;
+      this.apiErr = false;
     },
   },
   created: function () {
     this.chooseRoute();
     this.fetchDeviceData();
     this.hideMenu();
+    this.loading = true;
+    this.apiErr = false;
   },
 };
 </script>

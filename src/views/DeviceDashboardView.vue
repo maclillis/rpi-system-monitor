@@ -19,7 +19,7 @@
 
       <div class="rpi-misc-info-wrap my-4">
         <p class="rpi-misc-info">
-          <span class="bolded">OS: </span>{{ this.deviceOS }} (Raspberry Pi OS)
+          <span class="bolded">OS: </span>{{ this.deviceOs }} (Raspberry Pi OS)
         </p>
         <p class="rpi-misc-info">
           <span class="bolded">Release: </span>{{ this.deviceRelease }}
@@ -321,7 +321,7 @@ export default {
       device: null,
       updateChart: null,
       deviceName: "",
-      deviceOS: "",
+      deviceOs: null,
       deviceRelease: "",
       deviceVersion: "",
       deviceTemp: 40,
@@ -389,9 +389,23 @@ export default {
           { strokeStyle: "#b50000", min: 80.5, max: 90 }, // Deep Red
         ],
       },
+      apiUrl: null,
     };
   },
   methods: {
+    chooseRoute() {
+      // Spaghetti Code 2000! Yee-haa!
+
+      if (this.$router.currentRoute.matched[0].name === "glastonbury") {
+        this.apiUrl = process.env.VUE_APP_GLASTONBURY_BASE_URL;
+      } else if (this.$router.currentRoute.matched[0].name === "woodstock") {
+        this.apiUrl = process.env.VUE_APP_WOODSTOCK_BASE_URL;
+      } else if (this.$router.currentRoute.matched[0].name === "roskilde") {
+        this.apiUrl = process.env.VUE_APP_ROSKILDE_BASE_URL;
+      } else if (this.$router.currentRoute.matched[0].name === "retropie") {
+        this.apiUrl = process.env.VUE_APP_RETROPIE_BASE_URL;
+      }
+    },
     async fetchWithTimeout(resource, options = {}) {
       const { timeout = 8000 } = options;
 
@@ -406,12 +420,9 @@ export default {
     },
     async fetchDeviceData() {
       try {
-        const response = await this.fetchWithTimeout(
-          process.env.VUE_APP_RETROPIE_BASE_URL,
-          {
-            timeout: 5000,
-          }
-        );
+        const response = await this.fetchWithTimeout(this.apiUrl, {
+          timeout: 5000,
+        });
         const device = await response.json();
 
         //console.log(device);
@@ -468,24 +479,38 @@ export default {
         this.loading = false;
       }
     },
+    hideMenu() {
+      let menu = document.getElementById("menu");
+
+      this.showMobileMenu = !this.showMobileMenu;
+
+      if (!this.showMobileMenu) {
+        menu.classList.add("menu-in");
+      } else {
+        menu.classList.remove("menu-out");
+      }
+    },
   },
   mounted() {
+    this.chooseRoute();
     this.fetchDeviceData();
-  },
-  computed: {
-    orderStatusChartData() {
-      let chartData = [];
-      chartData.push(this.upMemUsed);
-      return chartData;
-    },
   },
   beforeUpdate() {
     this.upMemUsed = this.deviceMemUsed;
     this.upMemFree = this.deviceMemFree;
     this.upMemAvail = this.deviceMemAvail;
-
-    console.log("update used: " + this.upMemUsed);
-    console.log("update free: " + this.upMemFree);
+  },
+  watch: {
+    "$route.params": function () {
+      this.chooseRoute();
+      this.fetchDeviceData();
+      this.hideMenu();
+    },
+  },
+  created: function () {
+    this.chooseRoute();
+    this.fetchDeviceData();
+    this.hideMenu();
   },
 };
 </script>

@@ -1,13 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import RetropieView from "../views/RetropieView.vue";
-import DashboardView from "../views/DashboardView.vue";
+import DeviceDashboardView from "../views/DeviceDashboardView.vue";
 import DeviceNotFound from "../views/DeviceNotFound.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
+export const routes = [
   {
     path: "/",
     name: "home",
@@ -18,25 +17,25 @@ const routes = [
     path: "/glastonbury",
     name: "glastonbury",
     props: true,
-    component: DashboardView,
+    component: DeviceDashboardView,
   },
   {
     path: "/roskilde",
     name: "roskilde",
     props: true,
-    component: DashboardView,
+    component: DeviceDashboardView,
   },
   {
     path: "/woodstock",
     name: "woodstock",
     props: true,
-    component: DashboardView,
+    component: DeviceDashboardView,
   },
   {
     path: "/retropie",
     name: "retropie",
     props: true,
-    component: RetropieView,
+    component: DeviceDashboardView,
   },
   {
     path: "*",

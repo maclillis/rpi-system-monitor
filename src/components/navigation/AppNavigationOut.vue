@@ -19,7 +19,9 @@
       </div>
       <div class="row server-menu-row d-flex m-0">
         <div class="col server-menu-col">
-          <p class="server-name">Glastonbury</p>
+          <router-link :to="'/glastonbury'"
+            ><p class="server-name">Glastonbury</p></router-link
+          >
           <p class="server-title">Web Server</p>
         </div>
         <div class="col server-menu-col">
@@ -28,7 +30,9 @@
       </div>
       <div class="row server-menu-row d-flex m-0">
         <div class="col server-menu-col">
-          <p class="server-name">Woodstock</p>
+          <router-link :to="'/woodstock'"
+            ><p class="server-name">Woodstock</p></router-link
+          >
           <p class="server-title">NAS & Stream</p>
         </div>
         <div class="col server-menu-col">
@@ -37,7 +41,9 @@
       </div>
       <div class="row server-menu-row d-flex m-0">
         <div class="col server-menu-col">
-          <p class="server-name">Roskilde</p>
+          <router-link :to="'/roskilde'"
+            ><p class="server-name">Roskilde</p></router-link
+          >
           <p class="server-title">Web Server</p>
         </div>
         <div class="col server-menu-col">
@@ -46,7 +52,9 @@
       </div>
       <div class="row server-menu-row d-flex m-0">
         <div class="col server-menu-col">
-          <p class="server-name">Retropie</p>
+          <router-link :to="'/retropie'"
+            ><p class="server-name">Retropie</p></router-link
+          >
           <p class="server-title">Gaming</p>
         </div>
         <div class="col server-menu-col">

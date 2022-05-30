@@ -1,28 +1,52 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import GlastonburyView from "../views/GlastonburyView.vue";
+import HomeView from "../views/HomeView.vue";
+import RetropieView from "../views/RetropieView.vue";
+import DashboardView from "../views/DashboardView.vue";
+import DeviceNotFound from "../views/DeviceNotFound.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "glastonbury-view",
-    component: GlastonburyView,
+    name: "home",
+    props: true,
+    component: HomeView,
   },
-  /*
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" "../views/AboutView.vue"),
-  },*/
+    path: "/glastonbury",
+    name: "glastonbury",
+    props: true,
+    component: DashboardView,
+  },
+  {
+    path: "/roskilde",
+    name: "roskilde",
+    props: true,
+    component: DashboardView,
+  },
+  {
+    path: "/woodstock",
+    name: "woodstock",
+    props: true,
+    component: DashboardView,
+  },
+  {
+    path: "/retropie",
+    name: "retropie",
+    props: true,
+    component: RetropieView,
+  },
+  {
+    path: "*",
+    name: "DeviceNotFound",
+    component: DeviceNotFound,
+  },
 ];
 
 const router = new VueRouter({
+  mode: "history",
   routes,
 });
 

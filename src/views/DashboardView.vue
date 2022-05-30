@@ -1,21 +1,24 @@
 <template>
   <div class="rpi-dashboard-wrap d-flex flex-column px-3">
-    <div class="rpi-main-info-wrap" v-if="apiStatus == 200">
+    <p>{{ $route.path }}</p>
+    <p>{{ device }}</p>
+    <div class="rpi-main-info-wrap" v-if="status == 200">
       <div class="rpi-title-wrap d-inline-flex align-items-end">
         <h1 class="rpi-name me-3 lh-0">
           {{
-            this.deviceName.charAt(0).toUpperCase() + this.deviceName.slice(1)
+            device.platform.networkName.charAt(0).toUpperCase() +
+            device.platform.networkName.slice(1)
           }}
         </h1>
         <span
-          v-if="apiStatus == 200"
+          v-if="status == 200"
           class="rpi-status d-inline-flex align-items-center lh-0 mb-1"
         >
           <span class="status-light online-light me-1 align-self-center"></span>
           Online
         </span>
         <span
-          v-if="apiStatus != 200"
+          v-if="status != 200"
           class="rpi-status d-inline-flex align-items-center lh-0 mb-1"
         >
           <span
@@ -28,17 +31,20 @@
 
       <div class="rpi-misc-info-wrap my-4">
         <p class="rpi-misc-info">
-          <span class="bolded">OS: </span>{{ this.osName }} (Raspberry Pi OS)
+          <span class="bolded">OS: </span
+          >{{ device.platform.operatingSystem.name }} (Raspberry Pi OS)
         </p>
         <p class="rpi-misc-info">
-          <span class="bolded">Release: </span>{{ this.releaseVal }}
+          <span class="bolded">Release: </span
+          >{{ device.platform.operatingSystem.release }}
         </p>
         <p class="rpi-misc-info">
-          <span class="bolded">Version: </span>{{ this.versionVal }}
+          <span class="bolded">Version: </span
+          >{{ device.platform.operatingSystem.version }}
         </p>
       </div>
     </div>
-    <div class="rpi-panels-wrap pt-2 px-2" v-if="apiStatus == 200">
+    <div class="rpi-panels-wrap pt-2 px-2" v-if="status == 200">
       <div class="row">
         <div class="col px-0 pe-2">
           <div class="rpi-cpu-temp-wrap rpi-panel-wrap">
@@ -59,7 +65,7 @@
                 class="rpi-current-temp-gauge-wrap d-flex justify-content-center pt-3"
               >
                 <v-gauge
-                  :value="cpuTemp"
+                  :value="device.temperature.systemOnChip.quantity"
                   width="150"
                   height="85"
                   :minValue="minValue"
@@ -130,7 +136,7 @@
                 class="rpi-current-uptime-holder d-flex justify-content-start ps-4"
               >
                 <p class="c-uptime-text align-self-center m-0">
-                  {{ uptimeVal }}
+                  {{ device.uptime.formatted }}
                 </p>
               </div>
             </div>
@@ -159,7 +165,7 @@
                 </div>
                 <div class="row">
                   <div class="col rpi-freq-info-current mb-1">
-                    {{ String(this.armVal).slice(0, 3) }}
+                    {{ String(device.frequency.arm.quantity).slice(0, 3) }}
                     <span class="small-caps">Hz</span>
                   </div>
                 </div>
@@ -168,7 +174,7 @@
                 </div>
                 <div class="row">
                   <div class="col rpi-freq-info-current">
-                    {{ String(this.coreVal).slice(0, 3) }}
+                    {{ String(device.frequency.core.quantity).slice(0, 3) }}
                     <span class="small-caps">Hz</span>
                   </div>
                 </div>
@@ -187,49 +193,66 @@
               <div class="rpi-warn-badges-wrap px-4 py-3">
                 <div
                   class="warn-badge filled"
-                  :class="{ ' throttling-on': throttling }"
+                  :class="{ ' throttling-on': device.throttle.throttling }"
                 >
                   <p class="badge-text">throttling</p>
                 </div>
                 <div
                   class="warn-badge hollow"
-                  :class="{ ' throttling-occ-on': throttlingOcc }"
+                  :class="{
+                    ' throttling-occ-on': device.throttle.throttlingHasOccurred,
+                  }"
                 >
                   <p class="badge-text">throttling occured</p>
                 </div>
                 <div
                   class="warn-badge filled"
-                  :class="{ ' undervolt-on': underVolt }"
+                  :class="{
+                    ' undervolt-on': device.throttle.underVoltageDetected,
+                  }"
                 >
                   <p class="badge-text">undervoltage deteced</p>
                 </div>
                 <div
                   class="warn-badge hollow"
-                  :class="{ ' undervolt-occ-on': underVoltOcc }"
+                  :class="{
+                    ' undervolt-occ-on':
+                      device.throttle.underVoltageHasOccurred,
+                  }"
                 >
                   <p class="badge-text">undervoltage occured</p>
                 </div>
                 <div
                   class="warn-badge filled"
-                  :class="{ ' frequency-on': armFr }"
+                  :class="{
+                    ' frequency-on': device.throttle.armFrequencyCapped,
+                  }"
                 >
                   <p class="badge-text">arm frequency capped</p>
                 </div>
                 <div
                   class="warn-badge hollow"
-                  :class="{ ' frequency-occ-on': armFrOcc }"
+                  :class="{
+                    ' frequency-occ-on':
+                      device.throttle.armFrequencyCappingHasOccurred,
+                  }"
                 >
                   <p class="badge-text">arm frequency occured</p>
                 </div>
                 <div
                   class="warn-badge filled"
-                  :class="{ ' soft-temp-on': softTemp }"
+                  :class="{
+                    ' soft-temp-on': device.throttle.softTemperatureLimitActive,
+                  }"
                 >
                   <p class="badge-text">soft temp. limit active</p>
                 </div>
                 <div
                   class="warn-badge hollow"
-                  :class="{ ' soft-temp-occ-on': softTempOcc }"
+                  :class="{
+                    ' soft-temp-occ-on':
+                      device.throttle.softTemperatureLimitHasOccurred,
+                  }"
                 >
                   <p class="badge-text">soft temp. limit occured</p>
                 </div>
@@ -295,26 +318,8 @@ export default {
   },
   data() {
     return {
-      apiStatus: null,
-      cpuTemp: 40,
+      cpuTemp: 20,
       info: null,
-      loading: true,
-      errored: false,
-      deviceName: "",
-      osName: null,
-      uptimeVal: null,
-      armVal: "",
-      coreVal: "",
-      releaseVal: null,
-      versionVal: null,
-      armFr: null,
-      armFrOcc: null,
-      softTemp: null,
-      softTempOcc: null,
-      throttling: null,
-      throttlingOcc: null,
-      underVolt: null,
-      underVoltOcc: null,
       minValue: 30,
       maxValue: 90,
       opts: null,
@@ -363,48 +368,6 @@ export default {
         },
       },
     };
-  },
-  methods: {
-    fetchDeviceData() {
-      this.axios
-        .get(process.env.VUE_APP_GLASTONBURY_BASE_URL + "/system/")
-        .then((response) => {
-          this.device = response.data;
-
-          //Fetch status of HTTP-request
-          this.apiStatus = response.status;
-
-          this.deviceName = this.device.platform.networkName;
-          this.osName = this.device.platform.operatingSystem.name;
-          this.releaseVal = this.device.platform.operatingSystem.release;
-          this.versionVal = this.device.platform.operatingSystem.version;
-
-          this.cpuTemp = this.device.temperature.systemOnChip.quantity;
-
-          this.uptimeVal = this.device.uptime.formatted;
-
-          this.armVal = this.device.frequency.arm.quantity;
-          this.coreVal = this.device.frequency.core.quantity;
-
-          this.armFr = this.device.throttle.armFrequencyCapped;
-          this.armFrOcc = this.device.throttle.armFrequencyCappingHasOccurred;
-          this.softTemp = this.device.throttle.softTemperatureLimitActive;
-          this.softTempOcc =
-            this.device.throttle.softTemperatureLimitHasOccurred;
-          this.throttling = this.device.throttle.throttling;
-          this.throttlingOcc = this.device.throttle.throttlingHasOccurred;
-          this.underVolt = this.device.throttle.underVoltageDetected;
-          this.underVoltOcc = this.device.throttle.underVoltageHasOccurred;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        })
-        .finally(() => (this.loading = false));
-    },
-  },
-  mounted() {
-    this.fetchDeviceData();
   },
 };
 </script>

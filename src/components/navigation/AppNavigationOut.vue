@@ -13,7 +13,8 @@
           />
         </div>
       </div>
-      <div class="row desc-menu-row d-flex m-0">
+      <DevicesList></DevicesList>
+      <!--<div class="row desc-menu-row d-flex m-0">
         <div class="col desc-menu-col"><p class="server-info">name</p></div>
         <div class="col desc-menu-col"><p class="server-info">status</p></div>
       </div>
@@ -60,15 +61,19 @@
         <div class="col server-menu-col">
           <div class="status-light offline-light"></div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
 
 <script>
 import "@/components/navigation/AppNavigationOut.scss";
+import DevicesList from "@/components/partials/DevicesList.vue";
 export default {
   name: "AppNavigationOut",
+  components: {
+    DevicesList,
+  },
   data: function () {
     return {
       showMobileMenu: false,

@@ -25,8 +25,11 @@
   </div>
 </template>
 
-<script>
-import "@/components/partials/ModeAdjuster.scss";
+<style lang="scss">
+@import "@/components/partials/ModeAdjuster.scss";
+</style>
+
+<script type="text/javascript">
 export default {
   name: "ModeAdjuster",
   data() {

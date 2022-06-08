@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 
 export const routes = [
   {
+    //path: "http://192.168.187.244/rpi-monitor/",
     path: "/",
     name: "home",
     props: true,

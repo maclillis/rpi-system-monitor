@@ -297,7 +297,11 @@
   </div>
 </template>
 
-<script>
+<style lang="scss">
+@import "@/views/Views.scss";
+</style>
+
+<script type="text/javascript">
 import {
   Chart as ChartJS,
   Title,
@@ -308,8 +312,6 @@ import {
 } from "chart.js";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
-
-import "@/views/Views.scss";
 
 export default {
   name: "GlastonburyView",

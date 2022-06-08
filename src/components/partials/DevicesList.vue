@@ -58,7 +58,12 @@
     </div>
   </div>
 </template>
-<script>
+
+<style lang="scss">
+@import "@/components/partials/DevicesList.scss";
+</style>
+
+<script type="text/javascript">
 import "@/components/partials/DevicesList.scss";
 export default {
   name: "DevicesList",
@@ -73,6 +78,7 @@ export default {
   methods: {
     async fetchStatuses() {
       try {
+        //http://192.168.187.244
         const results = await Promise.allSettled([
           fetch(process.env.VUE_APP_GLASTONBURY_BASE_URL).then((response) =>
             response.json()
@@ -87,12 +93,12 @@ export default {
             response.json()
           ),
         ]);
-        /*console.log(
+        console.log(
           results[0].status,
           results[1].status,
           results[2].status,
           results[3].status
-        );*/
+        );
 
         if (results[0].status === "fulfilled") {
           this.glasOnline = true;

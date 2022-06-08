@@ -6,8 +6,11 @@
   </div>
 </template>
 
+<style lang="scss">
+@import "@/App.scss";
+</style>
+
 <script>
-import "@/App.scss";
 import AppNavigation from "@/components/navigation/AppNavigation.vue";
 import AppNavigationOut from "@/components/navigation/AppNavigationOut.vue";
 

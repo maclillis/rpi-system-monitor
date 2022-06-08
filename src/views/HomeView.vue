@@ -4,8 +4,12 @@
     <DevicesList></DevicesList>
   </div>
 </template>
+
+<style lang="scss">
+@import "@/views/HomeView.scss";
+</style>
+
 <script>
-import "@/views/HomeView.scss";
 import DevicesList from "@/components/partials/DevicesList.vue";
 
 export default {

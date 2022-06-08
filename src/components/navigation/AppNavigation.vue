@@ -11,8 +11,11 @@
   </div>
 </template>
 
+<style lang="scss">
+@import "@/components/navigation/AppNavigation.scss";
+</style>
+
 <script>
-import "@/components/navigation/AppNavigation.scss";
 import ModeAdjuster from "@/components/partials/ModeAdjuster.vue";
 export default {
   name: "AppNavigation",

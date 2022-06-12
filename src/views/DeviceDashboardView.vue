@@ -15,7 +15,7 @@
           Online
         </span>
       </div>
-      <h2 class="rpi-model">Raspberry PI 4 Model B</h2>
+      <h2 class="rpi-model">Raspberry PI 3/4 Model B</h2>
 
       <div class="rpi-misc-info-wrap my-4">
         <p class="rpi-misc-info">
@@ -272,7 +272,7 @@
     <div class="rpi-api-error" v-if="this.apiErr">
       <div class="rpi-main-info-wrap">
         <div class="rpi-title-wrap d-inline-flex align-items-end">
-          <h1 class="rpi-name me-3 lh-0">Retropie</h1>
+          <h1 class="rpi-name me-3 lh-0">Device</h1>
           <span class="rpi-status d-inline-flex align-items-center lh-0 mb-1">
             <span
               class="status-light offline-light me-1 align-self-center"
@@ -290,7 +290,7 @@
       v-if="this.loading"
     >
       <div class="rpi-loading-holder align-self-center text-center">
-        <img src="@/assets/img/loading.gif" class="rpi-loading-gif" />
+        <img src="img/loading.gif" class="rpi-loading-gif" />
         <p class="rpi-loading-text m-0 p-0">Loading device...</p>
       </div>
     </div>

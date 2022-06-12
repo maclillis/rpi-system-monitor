@@ -6,15 +6,11 @@
 
         .switch-label {
             /* for width, use the standard element-size */
-            width: 58px; 
-            
-            /* for other dimensions, calculate values based on it */
+            width: 68px;
             border-radius: var(--element-size);
-            //border: calc(var(--element-size) * 0.025) solid var(--accent-color);
-            padding: calc(var(--element-size) * 0.05);
-            font-size: calc(var(--element-size) * 0.3);
-            height: calc(var(--element-size) * 0.35);
-            
+            padding: calc(var(--element-size)*.07);
+            font-size: calc(var(--element-size)*.3);
+            height: calc(var(--element-size)*.45);
             align-items: center;
             background: var(--text-primary-color);
             cursor: pointer;
@@ -25,13 +21,13 @@
             z-index: 1;
 
             .icon-dark {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 display: flex;
                 align-items: center;
                 color: $mode-icon-night-light;
             }
             .icon-light {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 padding-left: 5px;
                 display: flex;
                 align-items: center;
@@ -43,10 +39,10 @@
             position: absolute;
             background-color: var(--background-color-primary);
             border-radius: 50%;
-            top: calc(var(--element-size) * 0.03);
-            left: calc(var(--element-size) * 0.03);
-            height: calc(var(--element-size) * 0.30);
-            width: calc(var(--element-size) * 0.30);
+            top: calc(var(--element-size)*.05);
+            left: calc(var(--element-size)*.08);
+            height: calc(var(--element-size)*.35);
+            width: calc(var(--element-size)*.35);
             transform: translateX(0);
             transition: transform 0.4s ease, background-color 0.6s ease;
         }

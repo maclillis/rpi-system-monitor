@@ -10,7 +10,7 @@
     </div>
     <div class="row server-home-row d-flex m-0">
       <div class="col server-home-col p-0">
-        <router-link :to="'/glastonbury'"
+        <router-link :to="{ name: 'glastonbury' }"
           ><p class="server-name">Glastonbury</p></router-link
         >
         <p class="server-title">Web Server</p>
@@ -22,7 +22,7 @@
     </div>
     <div class="row server-home-row d-flex m-0">
       <div class="col server-home-col p-0">
-        <router-link :to="'/woodstock'"
+        <router-link :to="{ name: 'woodstock' }"
           ><p class="server-name">Woodstock</p></router-link
         >
         <p class="server-title">NAS & Stream</p>
@@ -34,7 +34,7 @@
     </div>
     <div class="row server-home-row d-flex m-0">
       <div class="col server-home-col p-0">
-        <router-link :to="'/roskilde'"
+        <router-link :to="{ name: 'roskilde' }"
           ><p class="server-name">Roskilde</p></router-link
         >
         <p class="server-title">Web Server</p>
@@ -46,7 +46,7 @@
     </div>
     <div class="row server-home-row d-flex m-0">
       <div class="col server-home-col p-0">
-        <router-link :to="'/retropie'"
+        <router-link :to="{ name: 'retropie' }"
           ><p class="server-name">Retropie</p></router-link
         >
         <p class="server-title">Gaming</p>
@@ -93,12 +93,12 @@ export default {
             response.json()
           ),
         ]);
-        console.log(
+        /*console.log(
           results[0].status,
           results[1].status,
           results[2].status,
           results[3].status
-        );
+        );*/
 
         if (results[0].status === "fulfilled") {
           this.glasOnline = true;

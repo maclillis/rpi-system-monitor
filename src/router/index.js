@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 export const routes = [
   {
-    //path: "http://192.168.187.244/rpi-monitor/",
+    //path: process.env.VUE_APP_RPI_PATH,
     path: "/",
     name: "home",
     props: true,
@@ -40,7 +40,7 @@ export const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  //mode: "history",
   routes,
 });
 

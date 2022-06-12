@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rpi-navigation-wrap d-inline-flex px-3 py-2 justify-content-between"
+    class="rpi-navigation-wrap d-inline-flex px-3 py-3 justify-content-between"
   >
     <div class="rpi-mode-adjuster-outer d-flex align-items-center">
       <ModeAdjuster />

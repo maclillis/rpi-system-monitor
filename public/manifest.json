@@ -1,0 +1,9 @@
+{
+  "name": "RPI's Monitor",
+  "short_name": "RPI's Monitor",
+  "lang": "en-GB",
+  "start_url": "/rpi-monitor/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#1C2438"
+}

@@ -1,12 +1,15 @@
 html {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
   }
   
 body {
     background-color: var(--main-bg-color) !important;
     color: var(--main-text-color) !important;
     overflow-x: hidden;
+    width: 100%;
+    position: fixed; /* To remove scroll on mobile app */
     height: 110vh;
   }
 
@@ -34,7 +37,7 @@ a {
 }
 
 .dark-theme, .light-theme {
-  overflow-x: hidden !important;
+  overflow: hidden !important;
 }
 
 .online-light {

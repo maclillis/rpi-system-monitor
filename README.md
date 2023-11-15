@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-    <img src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/c2cb9814-6067-4839-877d-fe86a86af1dc" alt="Icon" width="120">
+    <img src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/3f066c82-8bf8-43d9-9f27-2fdc362236d0" alt="Icon" width="120">
 
   <h3 align="center">Raspberry PI's Monitor App</h3>
 
@@ -16,13 +16,13 @@ An SPA real time dashboard for all of my Raspberry Pi's at home. Built with Vue 
 Designed in [Figma](https://figma.com/).
 
 ### Light mode
-<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/7c6a31ac-16ff-419d-8e29-22c39103d346">
-<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/7e9ec541-2069-4504-8944-89084a084d1d">
-<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/b8da7583-a3be-477b-a3d4-b27e0a3495fb">
+<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/d109811f-c143-469f-897f-185b9fe999d1">
+<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/b678afc3-1177-4ad3-9859-743329653f28">
+<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/abcf7132-e313-470a-abd2-80ea4939d3a8">
 
 ### Dark mode
-<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/488be865-605b-4011-935e-d09d9e127cf3">
-<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/0c0cadd4-b365-4aee-9026-5e8c4c1f9fb1">
+<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/899dbda2-df47-4d4b-92a2-049fb12a8d34">
+<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/a66bbee6-47ec-4c81-bb17-f2e2120feaf4">
 
 ### How I did it
 

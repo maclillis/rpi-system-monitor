@@ -21,8 +21,8 @@ Designed in [Figma](https://figma.com/).
 <img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/abcf7132-e313-470a-abd2-80ea4939d3a8">
 
 ### Dark mode
-<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/899dbda2-df47-4d4b-92a2-049fb12a8d34">
 <img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/a66bbee6-47ec-4c81-bb17-f2e2120feaf4">
+<img width="250" src="https://github.com/maclillis/rpi-system-monitor/assets/13959025/899dbda2-df47-4d4b-92a2-049fb12a8d34">
 
 ### How I did it
 
